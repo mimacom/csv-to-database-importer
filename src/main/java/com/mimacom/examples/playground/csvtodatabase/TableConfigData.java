@@ -20,7 +20,7 @@ public class TableConfigData {
         return this;
     }
 
-    String getTableName() {
+    public String getTableName() {
         return tableName;
     }
 
@@ -38,13 +38,13 @@ public class TableConfigData {
         return this;
     }
 
-    String columns() {
+    public String columns() {
         return columns.stream()
                 .map(s -> String.format("\"%s\"", s))
                 .collect(Collectors.joining(","));
     }
 
-    String params() {
+    public String params() {
         return columns.stream()
                 .map(s -> String.format(":%s", s))
                 .collect(Collectors.joining(","));
