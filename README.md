@@ -1,2 +1,4 @@
 # csv-to-database-importer
-Sample Application
+
+
+Sample Application to import configurable csv-files into a database
