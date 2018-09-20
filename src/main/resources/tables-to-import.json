@@ -1,0 +1,12 @@
+[
+  {
+    "fileName": "table-a.csv",
+    "tableName": "TABLE_A",
+    "columns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  }
+]
