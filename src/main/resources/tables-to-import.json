@@ -3,10 +3,10 @@
     "fileName": "table-a.csv",
     "tableName": "TABLE_A",
     "columns": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "COL_A",
+      "COL_B",
+      "COL_C",
+      "COL_D"
     ]
   }
 ]

@@ -39,12 +39,14 @@ public class TableConfigData {
     }
 
     String columns() {
-        return String.join(",", this.columns);
+        return columns.stream()
+                .map(s -> String.format("\"%s\"", s))
+                .collect(Collectors.joining(","));
     }
 
     String params() {
         return columns.stream()
-                .map(s -> ":" + s)
+                .map(s -> String.format(":%s", s))
                 .collect(Collectors.joining(","));
     }
 }

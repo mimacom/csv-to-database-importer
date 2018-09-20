@@ -29,7 +29,7 @@ public class CsvToDatabaseApplicationTest {
         // when
         JobExecution jobExecution = this.jobLauncherTestUtils.launchJob();
 
-        //then
+        // then
         assertThat(jobExecution.getStatus()).isEqualTo(BatchStatus.COMPLETED);
     }
 

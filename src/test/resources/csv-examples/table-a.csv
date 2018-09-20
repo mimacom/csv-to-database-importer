@@ -1,3 +1,5 @@
-"A";"B";"C";"D"
-"Pado";"1234";"2018-09-20";"TRUE"
-"Pado1";"1234";"2018-09-21";"TRUE"
+COL_A ,COL_B,COL_C     ,COL_D
+Test-1,12345,2018-09-20,TRUE
+Test-2,""   ,2018-09-20,TRUE
+Test-3,12345,""        ,FALSE
+Test-4,,,TRUE

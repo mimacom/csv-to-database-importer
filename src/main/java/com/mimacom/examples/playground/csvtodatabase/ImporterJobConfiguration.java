@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -119,8 +119,8 @@ public class ImporterJobConfiguration {
         flatFileItemReader.setLinesToSkip(1);
         DefaultLineMapper<CsvEntry> lineMapper = new DefaultLineMapper<>();
         DelimitedLineTokenizer delimitedLineTokenizer = new DelimitedLineTokenizer();
-        delimitedLineTokenizer.setDelimiter(";");
-        delimitedLineTokenizer.setQuoteCharacter('"');
+        delimitedLineTokenizer.setDelimiter(DelimitedLineTokenizer.DELIMITER_COMMA);
+        delimitedLineTokenizer.setQuoteCharacter(DelimitedLineTokenizer.DEFAULT_QUOTE_CHARACTER);
         delimitedLineTokenizer.setNames(tableConfigData.getColumns().toArray(new String[0]));
         lineMapper.setLineTokenizer(delimitedLineTokenizer);
         lineMapper.setFieldSetMapper(fieldSet -> {
@@ -130,7 +130,7 @@ public class ImporterJobConfiguration {
             for (int i = 0; i < names.length; i++) {
                 String name = names[i];
                 String value = values[i];
-                csvEntry.add(name, value);
+                csvEntry.add(name, StringUtils.isBlank(value) ? null : value);
             }
             return csvEntry;
         });
